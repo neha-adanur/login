@@ -13,11 +13,11 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-        kk=(TextView)findViewById(R.id.textView3);
+       /* kk=(TextView)findViewById(R.id.textView3);
 
         Intent intent=getIntent();
         String name=intent.getStringExtra("key");
-        kk.setText(name);
+        kk.setText(name);*/
         Toast.makeText(Main2Activity.this,"you have successfully logged",Toast.LENGTH_LONG).show();
 
 

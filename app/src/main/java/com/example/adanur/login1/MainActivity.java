@@ -3,6 +3,7 @@ package com.example.adanur.login1;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,12 +19,22 @@ Databasehelper helper=new Databasehelper(this);
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Toolbar toolbar= (Toolbar) findViewById(R.id.too);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("LOGIN");
         tv1=(TextView)findViewById(R.id.textView);
         tv2=(TextView)findViewById(R.id.textView2);
         b1=(Button)findViewById(R.id.button);
         b2=(Button)findViewById(R.id.button2);
         ed1=(EditText)findViewById(R.id.editText);
         ed2=(EditText)findViewById(R.id.editText2);
+        tv1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+
+                Intent dbmanager = new Intent(getApplicationContext(),AndroidDatabaseManager.class);
+                startActivity(dbmanager);
+            }
+        });
 
 
     }
@@ -34,11 +45,11 @@ Databasehelper helper=new Databasehelper(this);
         if(password.equals(n2))
         {
             Intent intent = new Intent(MainActivity.this, Main2Activity.class);
-            intent.putExtra("key", n1);
+           // intent.putExtra("key", n1);
             startActivity(intent);
 
         }
-        else
+       else
             Toast.makeText(MainActivity.this,"no matches",Toast.LENGTH_SHORT).show();
 
     }
@@ -47,4 +58,6 @@ Databasehelper helper=new Databasehelper(this);
         Intent intent1=new Intent(MainActivity.this,Main3Activity.class);
         startActivity(intent1);
     }
+
+
 }
